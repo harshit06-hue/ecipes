@@ -12,6 +12,9 @@ public class LoginService {
    }
    public boolean isValidUser(String username, String password) {
 	   //write the logic here to check if the username & valid or not
-	   
+	   if(users.containsKey(username))
+		   if(users.get(username).equals(password))
+			   return true;
+	   return false;
    }
 }
