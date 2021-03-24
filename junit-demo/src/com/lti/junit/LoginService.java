@@ -1,20 +1,22 @@
 package com.lti.junit;
-
 import java.util.HashMap;
-
-public class LoginService {
-   public  HashMap<String ,String> users=new HashMap<String,String>();
-   public LoginService() {
-	   users.put("harhit","123");
-	   users.put("harhit1","1234");
-	   users.put("harhit2","1235");
-	   users.put("harhit3","1236");
-   }
-   public boolean isValidUser(String username, String password) {
-	   //write the logic here to check if the username & valid or not
-	   if(users.containsKey(username))
-		   if(users.get(username).equals(password))
-			   return true;
-	   return false;
-   }
+public class LoginService { 
+    public HashMap<String,String> users= new HashMap<String,String>();
+    public LoginService() {
+        users.put("raj", "123");
+        users.put("shivam", "456");
+        users.put("gaurav", "789");
+    }
+    
+    //assumption username is not case sensitive but password is case sensitive
+    
+    public  boolean isValiduser(String username , String password) {
+        
+        if(users.containsKey(username.toLowerCase()) && users.containsValue(password))
+            return true;
+        else 
+            return false;
+        
+    }
+    
 }
